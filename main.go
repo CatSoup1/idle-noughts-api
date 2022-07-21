@@ -24,7 +24,7 @@ func main() {
 		panic(err)
 	}
 	col := client.Database("Cluster1").Collection("idle-nought")
-
+	gin.SetMode(gin.ReleaseMode)
 	r := gin.Default()
 
 	r.GET("/get/leaderboard", func(c *gin.Context) {
