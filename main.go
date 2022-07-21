@@ -38,7 +38,7 @@ func main() {
 		}
 		defer cur.Close(context.TODO())
 
-		c.JSON(200, lb)
+		c.JSON(200, lbs)
 	})
 
 	r.Run(":8080")
