@@ -49,6 +49,9 @@ func main() {
 
 	r.POST("/post/update", func(c *gin.Context) {
 		res, err := c.GetRawData()
+		if err != null {
+			panic(err)
+		}
 		fmt.Println(res)
 	})
 
