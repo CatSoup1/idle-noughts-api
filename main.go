@@ -1,9 +1,6 @@
 package main
 
 import (
-	package main
-
-import (
 	"context"
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson"
@@ -46,5 +43,3 @@ func main() {
 
 	r.Run(":8080")
 }
-
-)
