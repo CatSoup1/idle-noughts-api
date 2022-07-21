@@ -8,6 +8,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"os"
+	"fmt"
 )
 
 type profile struct {
@@ -47,7 +48,7 @@ func main() {
 	})
 
 	r.POST("/post/update", func(c *gin.Context) {
-		res := c.GetRawData()
+		res, err := c.GetRawData()
 		fmt.Println(res)
 	})
 
