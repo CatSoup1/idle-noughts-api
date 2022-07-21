@@ -10,6 +10,11 @@ import (
 	"os"
 )
 
+type profile struct {
+	Tics string `json:"tics"`
+	BrowserId string `json:"browserId"`
+}
+
 
 func main() {
 	url := os.Getenv("url")
@@ -39,6 +44,11 @@ func main() {
 		defer cur.Close(context.TODO())
 
 		c.JSON(200, lbs)
+	})
+
+	r.POST("/post/update", func(c *gin.Context) {
+		res := c.GetRawData()
+		fmt.Println(res)
 	})
 
 	r.Run(":8080")
