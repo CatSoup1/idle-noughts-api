@@ -10,6 +10,7 @@ import (
 	"os"
 	"fmt"
 	"encoding/json"
+	"io/ioutil"
 )
 
 type profile struct {
