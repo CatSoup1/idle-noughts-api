@@ -73,7 +73,7 @@ allowList := map[string]bool{
 	if err := json.Unmarshal(jsonData, &updateLb); err != nil {
         c.JSON(200, gin.H{})
     }
-	fmt.Println(updateLb)
+	fmt.Println(updateLb.Tics)
 
 	})
 
