@@ -21,7 +21,7 @@ type profile struct {
 
 func main() {
 allowList := map[string]bool{
-    "https://aeolus-1.github.io":  true,
+    "https://aeolus-1.github.io":  true
 }
 
 
@@ -59,7 +59,7 @@ allowList := map[string]bool{
 	})
 
 	r.POST("/post/update", func(c *gin.Context) {
-			if origin := c.Request.Header.Get("Origin"); allowList[origin] {
+		if origin := c.Request.Header.Get("Origin"); allowList[origin] {
         c.Header("Access-Control-Allow-Origin", origin)
     }
 
@@ -69,7 +69,6 @@ allowList := map[string]bool{
          c.AbortWithError(http.StatusBadRequest,err)
       }
 	  fmt.Println(updateProfile)
-	c.JSON(200, {"message": "hi"})
 	})
 
 	r.Run(":8080")
