@@ -21,7 +21,7 @@ type profile struct {
 
 func main() {
 allowList := map[string]bool{
-	"http://idlenoughts.tk":  true
+	"http://idlenoughts.tk":  true,
     "https://aeolus-1.github.io":  true,
 	"https://idlenoughts.tk":  true,
 }
@@ -65,9 +65,6 @@ allowList := map[string]bool{
         c.Header("Access-Control-Allow-Origin", origin)
     }
 
-		var updateProfile profile
-		
-	  fmt.Println(updateProfile)
 	})
 
 	r.Run(":8080")
