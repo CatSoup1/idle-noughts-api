@@ -62,12 +62,6 @@ allowList := map[string]bool{
         c.Header("Access-Control-Allow-Origin", origin)
     }
 
-		var updateProfile profile
-		err :=context.BindJSON(&updateProfile);
-		if err != nil {
-         context.AbortWithError(http.StatusBadRequest,err)
-      }
-	  fmt.Println(updateProfile)
 		
 	})
 
