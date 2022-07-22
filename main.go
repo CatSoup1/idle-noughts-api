@@ -18,6 +18,12 @@ type profile struct {
 
 
 func main() {
+allowList := map[string]bool{
+    "https://www.google.com": true,
+    "https://aeolus-1.github.io":  true,
+}
+
+
 	url := os.Getenv("url")
 	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(url))
 	if err != nil {
@@ -28,6 +34,10 @@ func main() {
 	r := gin.Default()
 
 	r.GET("/get/leaderboard", func(c *gin.Context) {
+		if origin := c.Request.Header.Get("Origin"); allowList[origin] {
+        c.Header("Access-Control-Allow-Origin", origin)
+    }
+
 		cur, err := col.Find(context.TODO(), bson.D{{}})
 		if err != nil {
 			panic(err)
