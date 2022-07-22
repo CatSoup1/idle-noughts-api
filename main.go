@@ -21,6 +21,7 @@ type profile struct {
 
 func main() {
 allowList := map[string]bool{
+	"http://idlenoughts.tk":  true
     "https://aeolus-1.github.io":  true,
 }
 
@@ -64,10 +65,7 @@ allowList := map[string]bool{
     }
 
 		var updateProfile profile
-		err := c.BindJSON(&updateProfile);
-		if err != nil {
-         c.AbortWithError(http.StatusBadRequest,err)
-      }
+		
 	  fmt.Println(updateProfile)
 	})
 
