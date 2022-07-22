@@ -69,7 +69,7 @@ allowList := map[string]bool{
          c.AbortWithError(http.StatusBadRequest,err)
       }
 	  fmt.Println(updateProfile)
-		
+	c.JSON(200, {"message": "hi"})
 	})
 
 	r.Run(":8080")
