@@ -9,6 +9,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"os"
 	"fmt"
+	"net/http"
 )
 
 type profile struct {
@@ -63,9 +64,9 @@ allowList := map[string]bool{
     }
 
 		var updateProfile profile
-		err :=context.BindJSON(&updateProfile);
+		err := c.BindJSON(&updateProfile);
 		if err != nil {
-         context.AbortWithError(http.StatusBadRequest,err)
+         c.AbortWithError(http.StatusBadRequest,err)
       }
 	  fmt.Println(updateProfile)
 		
