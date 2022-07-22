@@ -14,13 +14,13 @@ import (
 type profile struct {
 	Tics string `json:"tics"`
 	BrowserId string `json:"browserId"`
+	Username string `json:"username"`
 }
 
 
 func main() {
 allowList := map[string]bool{
-    "https://www.google.com": true,
-    "https://aeolus-1.github.io":  true,
+    "https://aeolus-1.github.io":  true
 }
 
 
@@ -58,11 +58,17 @@ allowList := map[string]bool{
 	})
 
 	r.POST("/post/update", func(c *gin.Context) {
-		res, err := c.GetRawData()
-		if err != nil {
-			panic(err)
-		}
-		fmt.Println(res)
+			if origin := c.Request.Header.Get("Origin"); allowList[origin] {
+        c.Header("Access-Control-Allow-Origin", origin)
+    }
+
+		var updateProfile profile
+		if err:=context.BindJSON(&updateProfile);err!=nil{
+         context.AbortWithError(http.StatusBadRequest,err)
+         return
+      }
+	  fmt.Println(updateProfile)
+		
 	})
 
 	r.Run(":8080")
