@@ -20,7 +20,7 @@ type profile struct {
 
 func main() {
 allowList := map[string]bool{
-    "https://aeolus-1.github.io":  true
+    "https://aeolus-1.github.io":  true,
 }
 
 
@@ -62,6 +62,12 @@ allowList := map[string]bool{
         c.Header("Access-Control-Allow-Origin", origin)
     }
 
+		var updateProfile profile
+		err :=context.BindJSON(&updateProfile);
+		if err != nil {
+         context.AbortWithError(http.StatusBadRequest,err)
+      }
+	  fmt.Println(updateProfile)
 		
 	})
 
