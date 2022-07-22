@@ -9,7 +9,6 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"os"
 	"fmt"
-	"net/http"
 )
 
 type profile struct {
@@ -64,6 +63,15 @@ allowList := map[string]bool{
 		if origin := c.Request.Header.Get("Origin"); allowList[origin] {
         c.Header("Access-Control-Allow-Origin", origin)
     }
+	var updateLb profile
+	jsonData, err := ioutil.ReadAll(c.Request.Body)
+	if err != nil {
+    	panic(err)
+	}
+	if err := json.Unmarshal(jsonData, &updateLb); err != nil {
+        c.JSON(200, gin.H{})
+    }
+	fmt.Println(updateLb)
 
 	})
 
