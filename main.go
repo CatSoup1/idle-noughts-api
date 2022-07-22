@@ -63,9 +63,9 @@ allowList := map[string]bool{
     }
 
 		var updateProfile profile
-		if err:=context.BindJSON(&updateProfile);err!=nil{
+		err :=context.BindJSON(&updateProfile);
+		if err != nil {
          context.AbortWithError(http.StatusBadRequest,err)
-         return
       }
 	  fmt.Println(updateProfile)
 		
