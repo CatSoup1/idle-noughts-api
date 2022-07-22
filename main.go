@@ -21,7 +21,7 @@ type profile struct {
 
 func main() {
 allowList := map[string]bool{
-	"http://idlenoughts.tk":  true,
+	"http://idlenoughts.tk":  true
     "https://aeolus-1.github.io":  true,
 	"https://idlenoughts.tk":  true,
 }
