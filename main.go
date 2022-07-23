@@ -73,7 +73,26 @@ allowList := map[string]bool{
 	if err := json.Unmarshal(jsonData, &updateLb); err != nil {
         c.JSON(200, gin.H{})
     }
-	fmt.Println(updateLb.Tics)
+	filter := bson.D{{"_id", id}}
+update := bson.D{
+			{
+				Key: "browserId",
+				Value: updateLb.Tics,
+			},
+			{
+				Key: "browserId",
+				Value: updateLb.BrowserId,
+			},
+			{
+				Key: "username",
+				Value: updateLb.Username,
+			},
+}	
+	result, err := col.UpdateOne(context.TODO(), filter, update)
+if err != nil {
+	panic(err)
+}
+	fmt.Println(result)
 
 	})
 
