@@ -73,7 +73,7 @@ allowList := map[string]bool{
 	if err := json.Unmarshal(jsonData, &updateLb); err != nil {
         c.JSON(200, gin.H{})
     }
-	filter := bson.D{{"_id", id}}
+	filter := bson.D{{"browserId", updateLb.BrowserId}}
 update := bson.D{
 			{
 				Key: "browserId",
