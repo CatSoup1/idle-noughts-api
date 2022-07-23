@@ -88,9 +88,9 @@ update := bson.D{
 				Value: updateLb.Username,
 			},
 }	
-	result, err := col.UpdateOne(context.TODO(), filter, update)
+result, errr := col.UpdateOne(context.TODO(), filter, update)
 if err != nil {
-	panic(err)
+	panic(errr)
 }
 	fmt.Println(result)
 
