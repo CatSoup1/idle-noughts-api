@@ -86,7 +86,7 @@ allowList := map[string]bool{
 update := bson.D{{"$set",
         bson.D{
             {"tics", updateLb.Tics},
-			{"browserId", UpdateLb.BrowserId},
+			{"browserId", updateLb.BrowserId},
 			{"username", updateLb.Username},
         },
     }}
