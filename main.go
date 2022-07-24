@@ -79,13 +79,13 @@ allowList := map[string]bool{
 	filter :=  bson.D{
 			{
 				Key: "browserId",
-				Value: updateLb.Tics,
+				Value: updateLb.BrowserId,
 			},
 	}
 
 update := bson.D{
 			{
-				Key: "browserId",
+				Key: "tics",
 				Value: updateLb.Tics,
 			},
 			{
