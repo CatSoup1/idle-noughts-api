@@ -76,7 +76,13 @@ allowList := map[string]bool{
 	fmt.Println("Id: ", updateLb.BrowserId)
 	fmt.Println("Tics: ", updateLb.Tics)
 	fmt.Println("Username: ", updateLb.Username)
-	filter := bson.D{{"browserId", updateLb.BrowserId}}
+	filter :=  bson.D{
+			{
+				Key: "browserId",
+				Value: updateLb.Tics,
+			},
+	}
+
 update := bson.D{
 			{
 				Key: "browserId",
