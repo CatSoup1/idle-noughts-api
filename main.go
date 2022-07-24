@@ -73,6 +73,9 @@ allowList := map[string]bool{
 	if err := json.Unmarshal(jsonData, &updateLb); err != nil {
         c.JSON(200, gin.H{})
     }
+	fmt.Println("Id: ", updateLb.BrowserId)
+	fmt.Println("Tics: ", updateLb.Tics)
+	fmt.Println("Username: ", updateLb.Username)
 	filter := bson.D{{"browserId", updateLb.BrowserId}}
 update := bson.D{
 			{
