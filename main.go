@@ -92,7 +92,7 @@ update := bson.D{
 			},
 }	
 result, errr := col.UpdateOne(context.TODO(), filter, update)
-if err != nil {
+if errr != nil {
 	panic(errr)
 }
 	fmt.Println(result)
