@@ -83,20 +83,14 @@ allowList := map[string]bool{
 			},
 	}
 
-update := bson.D{
-			{
-				Key: "tics",
-				Value: updateLb.Tics,
-			},
-			{
-				Key: "browserId",
-				Value: updateLb.BrowserId,
-			},
-			{
-				Key: "username",
-				Value: updateLb.Username,
-			},
-}	
+update := bson.D{{"$set",
+        bson.D{
+            {"tics", updateLb.Tics},
+			{"browserId", UpdateLb.BrowserId},
+			{"username", updateLb.Username},
+        },
+    }}
+	
 result, errr := col.UpdateOne(context.TODO(), filter, update)
 if errr != nil {
 	panic(errr)
