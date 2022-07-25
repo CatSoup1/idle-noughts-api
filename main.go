@@ -109,7 +109,7 @@ if errr != nil {
 if err != nil {
 	panic(err)
 }
-fmt.Println(result)
+fmt.Println(res)
 }
 
 
