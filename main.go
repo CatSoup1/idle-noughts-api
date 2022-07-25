@@ -76,14 +76,18 @@ allowList := map[string]bool{
 	fmt.Println("Id: ", updateLb.BrowserId)
 	fmt.Println("Tics: ", updateLb.Tics)
 	fmt.Println("Username: ", updateLb.Username)
+	
 	filter :=  bson.D{
 			{
 				Key: "browserId",
 				Value: updateLb.BrowserId,
 			},
 	}
+count, err := collection.CountDocuments(context.TODO(), filter)
 
-update := bson.D{{"$set",
+if count >= 1 {
+    fmt.Println("Documents exist in this collection!")
+	update := bson.D{{"$set",
         bson.D{
             {"tics", updateLb.Tics},
 			{"browserId", updateLb.BrowserId},
@@ -96,6 +100,10 @@ if errr != nil {
 	panic(errr)
 }
 	fmt.Println(result)
+} else {
+	fmt.Println("no")
+}
+
 
 	})
 	r.Run(":8080")
