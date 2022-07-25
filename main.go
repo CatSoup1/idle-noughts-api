@@ -38,9 +38,7 @@ allowList := map[string]bool{
 	r := gin.Default()
 
 	r.GET("/get/leaderboard", func(c *gin.Context) {
-		if origin := c.Request.Header.Get("Origin"); allowList[origin] {
-        c.Header("Access-Control-Allow-Origin", origin)
-    }
+	c.Header("Access-Control-Allow-Origin", "*")
 
 		cur, err := col.Find(context.TODO(), bson.D{{}})
 		if err != nil {
