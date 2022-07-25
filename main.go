@@ -101,7 +101,15 @@ if errr != nil {
 }
 	fmt.Println(result)
 } else {
-	fmt.Println("no")
+	res, err := col.InsertOne(context.TODO(), bson.D{
+    {"tics", updateLb.Tics},
+	{"browserId", updateLb.BrowserId},
+	{"username", updateLb.Username},
+})
+if err != nil {
+	panic(err)
+}
+fmt.Println(result)
 }
 
 
