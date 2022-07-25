@@ -83,7 +83,7 @@ allowList := map[string]bool{
 				Value: updateLb.BrowserId,
 			},
 	}
-count, err := collection.CountDocuments(context.TODO(), filter)
+count, err := col.CountDocuments(context.TODO(), filter)
 
 if count >= 1 {
     fmt.Println("Documents exist in this collection!")
