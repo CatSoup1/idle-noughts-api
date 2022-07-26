@@ -17,6 +17,8 @@ type profile struct {
 	Tics string `json:"tics"`
 	BrowserId string `json:"browserId"`
 	Username string `json:"username"`
+	Toes string `json:"toes"`
+	Tacs string `json:"tacs"`
 }
 
 
@@ -90,6 +92,8 @@ if count >= 1 {
             {"tics", updateLb.Tics},
 			{"browserId", updateLb.BrowserId},
 			{"username", updateLb.Username},
+			{"tacs", updateLb.Tacs},
+			{"toes", updateLb.Toes},
         },
     }}
 	
@@ -100,9 +104,11 @@ if errr != nil {
 	fmt.Println(result)
 } else {
 	res, err := col.InsertOne(context.TODO(), bson.D{
-    {"tics", updateLb.Tics},
+     {"tics", updateLb.Tics},
 	{"browserId", updateLb.BrowserId},
 	{"username", updateLb.Username},
+	{"tacs", updateLb.Tacs},
+	{"toes", updateLb.Toes},
 })
 if err != nil {
 	panic(err)
